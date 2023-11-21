@@ -16,7 +16,7 @@
 }
 
 .cardContainer {
-  @apply mx-auto max-w-7xl text-center px-5 h-fit;
+  @apply mx-auto max-w-7xl text-center px-2.5	md:px-5 h-fit;
 }
 
 #qrContainer {
