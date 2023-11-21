@@ -38,7 +38,7 @@ This free online QR Code Generator is built on Tailwind CSS and JavaScript, usin
 ## Tech Stack
 
 - TailwindCSS
-- JS
+- JavaScript
 - QrCodeStyling
 
 
