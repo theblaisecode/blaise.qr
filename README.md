@@ -4,7 +4,6 @@
 Blaise.QR is a powerful and free online QR Code Generator that empowers you to create custom QR codes with ease. Add logos, play with colors, choose from various designs, and download in vector formats for optimal print quality.
 
 This free online QR Code Generator is built on Tailwind CSS and JavaScript, using QrCodeStyling to provide a seamless and customizable experience.
-When an anime is selected, the background image changes and the intro video starts playing.
 
 
 ## Key Features
