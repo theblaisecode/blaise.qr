@@ -5,6 +5,8 @@ Blaise.QR is a powerful and free online QR Code Generator that empowers you to c
 
 This free online QR Code Generator is built on Tailwind CSS and JavaScript, using QrCodeStyling to provide a seamless and customizable experience.
 
+Live Website - https://theblaisecode.github.io/blaise.qr/
+
 
 ## Key Features
 
@@ -49,4 +51,4 @@ This free online QR Code Generator is built on Tailwind CSS and JavaScript, usin
 - LinkedIn - [@theblaisecode](https://www.linkedin.com/in/theblaisecode)
 - Portfolio - [theblaisecode.netlify.app/](https://theblaisecode.netlify.app/)
 
-Start creating personalized QR codes today with Blaise.QR! Visit https://your-qrcode-generator-url.com.
+Start creating personalized QR codes today with Blaise.QR! Visit https://theblaisecode.github.io/blaise.qr/
