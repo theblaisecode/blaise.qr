@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- --------------------- Description --------------------- -->
+    <meta
+      name="description"
+      content="Blaise.QR is a free online QR Code Generator to make your custom QR Codes with Logo, Color, Designs and download vector formats for best print quality." />
+
+    <!-- --------------------- Favicon --------------------- -->
+    <link rel="shortcut icon" href="./img/profile.png" type="image/x-icon" />
+
+    <!-- --------------------- TailwindCSS --------------------- -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- --------------------- Tab Name --------------------- -->
+    <title>Blaise.QR - TheBlaiseCode</title>
+
+    <link rel="stylesheet" href="./css/typography/typo-fonts.css" />
+
+    <!-- --------------------- QR Code Styling CDN --------------------- -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+  </head>
+
+  <body class="bg-dark">
+    <!-- --------------------- Section: Header --------------------- -->
+    <section id="header">
+      <div class="sectionContainer">
+        <div class="flex justify-between items-center text-white">
+          <a
+            href="index.html"
+            id="logo"
+            class="font-CeraRoundPro font-black text-2xl transition-all duration-200 hover:text-sage">
+            Blaise.QR
+          </a>
+          <a
+            href="https://github.com/theblaisecode"
+            aria-label="Link to Github"
+            target="_blank"
+            class="group">
+            <i class="fa-brands fa-github fa-xl iconHover"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------- Section: QR Card ---------------------- -->
+    <section id="qrCard" class="mx-auto">
+      <!-- ------------- Container ------------- -->
+      <div class="cardContainer max-w-7xl overflow-hidden">
+        <div
+          class="bg-dark2 border-accent border-2 rounded-xl py-5 px-8 md:gap-8 flex h-fit flex-col-reverse md:flex-row text-white overflow-hidden">
+          <div class="w-full md:w-3/4">
+            <!-- ------------- Form ------------- -->
+            <form
+              action=""
+              class="font-CeraRoundPro font-medium flex flex-col text-left space-y-3">
+              <label for="data">
+                Enter URL
+                <span class="font-sans">/</span>
+                Text
+              </label>
+              <input
+                type="text"
+                name="data"
+                id="data"
+                placeholder="Enter URL / Text"
+                required
+                class="w-full font-sans text-sage p-3 outline-none rounded-md caret-sage placeholder:text-gray-105" />
+
+              <!-- ------------- Design Options ------------- -->
+              <div class="my-5 space-y-2 text-left">
+                <!-- ------------- Accordion: Color ------------- -->
+                <div class="grid gap-2 max-w-4xl mx-auto mt-8">
+                  <div
+                    class="rounded-lg font-CeraRoundPro bg-[#343a44] text-white">
+                    <details class="group bg-sage rounded-lg">
+                      <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none px-5 py-5 rounded-t-lg">
+                        <span class="text-2xl">Color</span>
+                        <span class="transition group-open:rotate-180">
+                          <i
+                            class="fa-solid fa-angle-down h-2 w-3 transition-all duration-500 group-focus:-rotate-180"></i>
+                        </span>
+                      </summary>
+
+                      <div
+                        class="rounded-b-md px-5 py-3 bg-[#343a44] group-open:animate-fadeIn text-left">
+                        <!-- ------------- Background Color ------------- -->
+                        <div class="my-2 flex flex-col gap-2 justify-center">
+                          <label for="bgColor" class="text-lg">
+                            Background color
+                          </label>
+                          <div
+                            class="w-full flex justify-between items-center gap-5">
+                            <input
+                              type="text"
+                              name="bgCode"
+                              id="bgCode"
+                              value="#fff"
+                              placeholder="#ffffff"
+                              class="w-full font-sans text-sage p-3 outline-none rounded-md caret-sage placeholder:text-gray-105" />
+
+                            <input
+                              type="color"
+                              name="bgColor"
+                              id="bgColor"
+                              value="#ffffff"
+                              class="appearance-none w-32 h-12 rounded-md px-1" />
+                          </div>
+
+                          <div class="mt-2 w-full flex items-center gap-5">
+                            <label
+                              class="relative inline-flex items-center mb-5 cursor-pointer">
+                              <input
+                                type="checkbox"
+                                name="transparent"
+                                id="transparent"
+                                value=""
+                                class="sr-only peer" />
+                              <div
+                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage"></div>
+                              <span class="ml-3 text-base font-medium">
+                                Transparent
+                              </span>
+                            </label>
+
+                            <label
+                              class="relative inline-flex items-center mb-5 cursor-pointer">
+                              <input
+                                type="checkbox"
+                                name="gradient"
+                                id="gradient"
+                                value=""
+                                class="sr-only peer" />
+                              <div
+                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage"></div>
+                              <span class="ml-3 text-base font-medium">
+                                Gradient
+                              </span>
+                            </label>
+                          </div>
+
+                          <div
+                            id="bgGradientSelection"
+                            class="hidden w-full flex-col gap-5 mb-5">
+                            <div
+                              class="flex justify-between items-center gap-5">
+                              <input
+                                type="text"
+                                name="gradientBgCode"
+                                id="gradientBgCode"
+                                value="#000"
+                                placeholder="#000000"
+                                class="w-full font-sans text-sage p-3 outline-none rounded-md caret-sage placeholder:text-gray-105" />
+
+                              <input
+                                type="color"
+                                name="gradientBgColor"
+                                id="gradientBgColor"
+                                value="#000000"
+                                class="appearance-none w-32 h-12 rounded-md px-1" />
+                            </div>
+
+                            <div class="flex w-full gap-5 items-center">
+                              <label for="bgGradientRotation">Rotation <span class="font-sans">(deg)</span></label>
+                              <input
+                                id="bgGradientRotation"
+                                type="number"
+                                min="0"
+                                max="360"
+                                value=""
+                                placeholder="0"
+                                class="w-16 h-8 p-2 rounded-lg outline-none text-sage font-sans placeholder:text-gray-105" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- ------------- Dot Color ------------- -->
+                        <div
+                          class="mt-2 flex flex-col gap-2 justify-center pb-6">
+                          <label for="dotColor" class="text-lg">
+                            Dot color
+                          </label>
+                          <div
+                            class="w-full flex justify-between items-center gap-5">
+                            <input
+                              type="text"
+                              name="dotCode"
+                              id="dotCode"
+                              placeholder="#000000"
+                              class="w-full text-sage p-3 font-sans outline-none rounded-md caret-sage placeholder:text-gray-105" />
+
+                            <input
+                              type="color"
+                              name="dotColor"
+                              id="dotColor"
+                              class="appearance-none w-32 h-12 rounded-md px-1" />
+                          </div>
+                        </div>
+
+                        <!-- ------------- Marker Color ------------- -->
+                        <div class="my-2 flex flex-col gap-2 justify-center">
+                          <label for="markerColor" class="text-lg">
+                            Marker border color
+                          </label>
+                          <div
+                            class="w-full flex justify-between items-center gap-5">
+                            <input
+                              type="text"
+                              name="markerCode"
+                              id="markerCode"
+                              placeholder="#000000"
+                              class="w-full text-sage p-3 outline-none rounded-md caret-sage placeholder:text-gray-105 font-sans" />
+
+                            <input
+                              type="color"
+                              name="markerColor"
+                              id="markerColor"
+                              value="#000000"
+                              class="appearance-none w-32 h-12 rounded-md px-1" />
+                          </div>
+                        </div>
+
+                        <!-- ------------- Marker Center Color ------------- -->
+                        <div class="my-5 flex flex-col gap-2 justify-center">
+                          <label for="markerCenter" class="text-lg">
+                            Marker center color
+                          </label>
+                          <div
+                            class="w-full flex justify-between items-center gap-5">
+                            <input
+                              type="text"
+                              name="markerCenterCode"
+                              id="markerCenterCode"
+                              placeholder="#000000"
+                              class="w-full text-sage p-3 outline-none rounded-md caret-sage placeholder:text-gray-105 font-sans" />
+
+                            <input
+                              type="color"
+                              name="markerCenterColor"
+                              id="markerCenterColor"
+                              class="appearance-none w-32 h-12 rounded-md px-1" />
+                          </div>
+                        </div>
+                      </div>
+                    </details>
+                  </div>
+
+                  <!-- ------------- Accordion: Shape & Form ------------- -->
+                  <div
+                    class="rounded-lg font-CeraRoundPro bg-[#343a44] text-white">
+                    <details class="group bg-sage rounded-lg">
+                      <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none px-5 py-5 rounded-t-lg">
+                        <span class="text-2xl">
+                          Shape
+                          <span class="font-sans">&</span>
+                          Form
+                        </span>
+
+                        <span class="transition group-open:rotate-180">
+                          <i
+                            class="fa-solid fa-angle-down h-2 w-3 transition-all duration-500 group-focus:-rotate-180"></i>
+                        </span>
+                      </summary>
+
+                      <div
+                        class="rounded-b-md px-5 py-3 bg-[#343a44] group-open:animate-fadeIn text-left">
+                        <!-- ------------- Shape: QR Size  ------------- -->
+                        <div
+                          class="mt-2 mb-8 flex flex-col gap-1 justify-center">
+                          <label for="size" class="text-lg mb-2">Size</label>
+
+                          <div
+                            class="flex flex-col justify-center w-full gap-3">
+                            <input
+                              type="range"
+                              name="size"
+                              id="size"
+                              min="200"
+                              max="2000"
+                              value="300"
+                              class="cursor-pointer bg-[#53575f] appearance-none rounded-xl h-2" />
+
+                            <div
+                              class="flex justify-between items-center text-sm">
+                              <span>Low Quality</span>
+                              <span
+                                id="qrSize"
+                                class="font-bold font-sans"></span>
+                              <span>High Quality</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- ------------- Shape: Dots  ------------- -->
+                        <div
+                          class="mt-2 mb-5 flex flex-col gap-1 justify-center">
+                          <label for="dots" class="text-lg mb-2">Dots</label>
+
+                          <div
+                            class="grid grid-cols-5 md:grid-cols-6 gap-5 justify-center items-center">
+                            <img
+                              src="./img/qr-square.png"
+                              alt="Square Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="square1" />
+                            <img
+                              src="./img/qr-dot.png"
+                              alt="Dot Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="dots1" />
+                            <img
+                              src="./img/qr-round.png"
+                              alt="Round Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="rounded1" />
+                            <img
+                              src="./img/qr-extra-round.png"
+                              alt="Extra Round Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="extra-rounded1" />
+                            <img
+                              src="./img/qr-classy.png"
+                              alt="Classy Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="classy1" />
+                            <img
+                              src="./img/qr-classy-rounded.png"
+                              alt="Classy Rounded Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="classy-rounded1" />
+                          </div>
+                        </div>
+
+                        <!-- ------------- Shape: Marker Border  ------------- -->
+                        <div
+                          class="mt-2 mb-5 flex flex-col gap-1 justify-center">
+                          <label for="markerBorder" class="text-lg mb-2">
+                            Marker border
+                          </label>
+
+                          <div
+                            class="grid grid-cols-5 md:grid-cols-6 gap-5 justify-center items-center">
+                            <img
+                              src="./img/qr-corner-square.png"
+                              alt="Corner Square Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="square2" />
+                            <img
+                              src="./img/qr-corner-circle.png"
+                              alt="Dot Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="dot2" />
+
+                            <img
+                              src="./img/qr-corner-rounded.png"
+                              alt="Extra Round Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="extra-rounded2" />
+
+                            <img
+                              src="./img/qr-corner-round.png"
+                              alt="Round Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="2" />
+                          </div>
+                        </div>
+
+                        <!-- ------------- Shape: Marker Center  ------------- -->
+                        <div
+                          class="mt-2 mb-5 flex flex-col gap-1 justify-center">
+                          <label for="markerBorder" class="text-lg mb-2">
+                            Marker center
+                          </label>
+
+                          <div
+                            class="grid grid-cols-5 md:grid-cols-6 gap-5 justify-center items-center">
+                            <img
+                              src="./img/qr-inner-square.png"
+                              alt="Corner Square Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="square3" />
+                            <img
+                              src="./img/qr-inner-circle.png"
+                              alt="Dot Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="dot3" />
+
+                            <img
+                              src="./img/qr-inner-round.png"
+                              alt="Round Style"
+                              class="cursor-pointer border-[#53575f] border-2 rounded-xl p-2"
+                              id="3" />
+                          </div>
+                        </div>
+                      </div>
+                    </details>
+                  </div>
+
+                  <!-- ------------- Accordion: Logo  ------------- -->
+                  <div
+                    class="rounded-lg font-CeraRoundPro bg-[#343a44] text-white">
+                    <details class="group bg-sage rounded-lg">
+                      <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none px-5 py-5 rounded-t-lg">
+                        <span class="text-2xl">Logo</span>
+
+                        <span class="transition group-open:rotate-180">
+                          <i
+                            class="fa-solid fa-angle-down h-2 w-3 transition-all duration-500 group-focus:-rotate-180"></i>
+                        </span>
+                      </summary>
+
+                      <div
+                        class="rounded-b-md mb-3 px-5 py-3 bg-[#343a44] group-open:animate-fadeIn text-left">
+                        <div class="my-2 flex flex-col gap-2 justify-center">
+                          <label for="upload" class="text-lg mb-3">
+                            Upload Logo
+                          </label>
+
+                          <form>
+                            <div class="flex gap-3 items-center space-x-6">
+                              <div class="shrink-0">
+                                <img
+                                  id="preview_img"
+                                  class="h-16 w-16 object-cover rounded-lg"
+                                  src="./img/img placeholder.jpg"
+                                  alt="Current profile photo" />
+                              </div>
+                              <label
+                                for="fileInput"
+                                class="block rounded-lg w-full cursor-pointer">
+                                <input
+                                  type="file"
+                                  id="fileInput"
+                                  accept="image/*"
+                                  class="hidden" />
+                                <div
+                                  class="w-fit bg-sage p-3 rounded-lg text-sm">
+                                  Choose File
+                                </div>
+                              </label>
+                              <button id="removeLogo" class="cursor-pointer bg-sage p-3 rounded-lg text-sm">Remove</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- ------------- Background Color ------------- -->
+
+          <!-- ------------- Border ------------- -->
+          <div class="border border-sage my-5 md:hidden"></div>
+          <div class="hidden border-l border-sage my-5 md:block"></div>
+
+          <!-- ------------- QR Result ------------- -->
+          <div class="my-5 space-y-2 text-left w-full md:w-2/6">
+            <!-- ------------- QR Code ------------- -->
+            <div id="qrContainer"
+              class="w-[300px] h-[300px] mb-4 bg-transparent flex justify-center items-center mx-auto">
+              <div id="canvas" class="max-w-[300px] max-h-[300px] object-fit "></div>
+            </div>
+
+            <!-- ------------- Download Buttons ------------- -->
+            <div class="w-full flex flex-col gap-4 mt-4  justify-center">
+              <button
+                id="downloadPNG"
+                class="bg-sage text-white font-bold py-2 px-4 rounded">
+                Download PNG
+              </button>
+
+              <button
+                id="downloadJPG"
+                class="bg-sage text-white font-bold py-2 px-4 rounded">
+                Download JPG
+              </button>
+
+              <button
+                id="downloadSVG"
+                class="bg-sage text-white font-bold py-2 px-4 rounded">
+                Download SVG
+              </button>
+
+              <button
+                id="downloadWEBP"
+                class="bg-sage text-white font-bold py-2 px-4 rounded">
+                Download WEBP
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------- Section: Footer ---------------------- -->
+    <footer id="footer">
+      <div class="sectionContainer">
+        <div
+          class="flex flex-col gap-6 md:flex-row md:justify-between items-center text-white font-CeraRoundPro">
+          <!-- ------------- Text ------------- -->
+          <p>
+            Made with
+            <i class="fa-solid fa-heart fa-lg text-sage"></i>
+            by
+            <a
+              href="https://theblaisecode.netlify.app/"
+              aria-label="Link to Portfolio"
+              target="_blank"
+              class="text-sage font-bold underline underline-offset-4">
+              TheBlaiseCode
+            </a>
+          </p>
+
+          <!-- ------------- Border ------------- -->
+          <div class="border border-sage w-1/4 md:hidden"></div>
+
+          <!-- ------------- Social Links ------------- -->
+          <div id="social">
+            <ul class="flex gap-10 text-white">
+              <li>
+                <a href="https://github.com/theblaisecode" target="_blank" aria-label="Link to Github" class="group">
+                  <i class="fa-brands fa-github fa-xl iconHover"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/theblaisecode" target="_blank" aria-label="Link to Twitter" class="group">
+                  <i class="fa-brands fa-twitter fa-xl iconHover"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/theblaisecode" target="_blank" aria-label="Link to Linkedin" class="group">
+                  <i class="fa-brands fa-linkedin-in fa-xl iconHover"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://theblaisecode.netlify.app/" target="_blank" aria-label="Link to Portfolio" class="group">
+                  <i class="fa-solid fa-globe fa-xl iconHover"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ---------------------- Fontaewsome ---------------------- -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" />
+
+    <!-- --------------------- JavaScript --------------------- -->
+    <script src="./js/app.js"></script>
+  </body>
+</html>

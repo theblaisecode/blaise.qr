@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "CeraRoundPro";
+  src: url("typography/CeraRoundProRegular.woff") format("woff");
+}
+
+.iconHover {
+  @apply transition-all duration-200 group-hover:scale-125 group-hover:text-sage;
+}
+
+.sectionContainer {
+  @apply container mx-auto p-5;
+}
+
+.cardContainer {
+  @apply mx-auto max-w-7xl text-center px-5 h-fit;
+}
+
+#qrContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+}
+
+
