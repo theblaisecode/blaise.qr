@@ -44,6 +44,9 @@ This free online QR Code Generator is built on Tailwind CSS and JavaScript, usin
 
 ## Authors
 
-- [@theblaisecode](https://github.com/theblaisecode)
+- GitHub - [@theblaisecode](https://github.com/theblaisecode)
+- Twitter - [@theblaisecode](https://twitter.com/theblaisecode)
+- LinkedIn - [@theblaisecode](https://www.linkedin.com/in/theblaisecode)
+- Portfolio - [theblaisecode.netlify.app/](https://theblaisecode.netlify.app/)
 
 Start creating personalized QR codes today with Blaise.QR! Visit https://your-qrcode-generator-url.com.
